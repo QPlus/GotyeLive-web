@@ -9,6 +9,7 @@ Gotye.Chat = (function(win) {
     var timer;
 	var imgs=[];
 	var tempGift={};
+	var enterMap={};
 	var Chat = function(token){
 		this.liveChat = new Gotye.Live(token);
 		//定时显示礼物
@@ -17,13 +18,19 @@ Gotye.Chat = (function(win) {
    		 },500);
 		//计算礼品显示
 		calculateGiftShow();
+		//登陆
 		this.login();
+		//绑定发送消息事件
 		this.bindSendmsg();
+		//绑定支付送礼事件
 		this.bindPayGift();
+		//加载历史消息
 		this.showHistory();
+		//绑定送礼事件
 		this.bindGiftbtn();
 		//注入表情
 		win.toExpression('expressionBox').showHide('facebtn', 'expressionBox').sendFace('chat_div', 'expressionBox');
+		//绑定关闭私聊事件
 		bindPrivateClose();
 	}
 	Chat.prototype = {

@@ -128,9 +128,6 @@
                       	<!-- 聊天 -->
                          <section class="msg-chat swiper-slide show" id="infor-tab10">
 	                         <div class="showgift" id="showgift"></div>
-	                         <div class="loadImg" style="display:none;">
-	                         	<img src="http://162.gotlive.com.cn:80/share/h5/images/loading.gif">
-	                         </div>
 	                         <ul class="msg-list chat allow-roll" id="msg-chat-list" style="height: 333.063px;">
 							 </ul>
 						 </section>
@@ -364,21 +361,16 @@
 	   		var room;
 	   		var chat;
 	        $(function(){
-	        	//获取房间信息
-				live.getRoom({},function(entity){
-		   			if(entity){
-		   				room = entity;
-		   				chat = new Gotye.Chat(token);//聊天
-		   				$("#anchorIntr").html(entity.anchorDesc);//主播介绍
-		   				loadPlayer(token);//加载视频
-		   				loadCourseware();//加载课件
-		   			}else{
-		   				Tool.log("room is empty!");
-		   			}
-		   		},
-		   		function(){
-		   			Tool.log("get room fail!");
-		   		});
+	   			if('${room}'){
+	   				room = ${room};
+	   				chat = new Gotye.Chat(token);//聊天
+	   				$("#anchorIntr").html(room.anchorDesc);//主播介绍
+	   				loadPlayer(token);//加载视频
+	   				loadCourseware();//加载课件
+	   			}else{
+	   				Tool.log("room is empty!");
+	   			}
+	
 	         });
         </script>
     </body>

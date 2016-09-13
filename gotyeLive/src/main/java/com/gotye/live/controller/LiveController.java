@@ -25,6 +25,9 @@ import com.gotye.live.model.AccessTokenReq;
 import com.gotye.live.model.AccessTokenResp;
 import com.gotye.live.model.GetRoomPwdReq;
 import com.gotye.live.model.GetRoomPwdResp;
+import com.gotye.live.model.GetRoomReq;
+import com.gotye.live.model.GetRoomResp;
+import com.gotye.live.model.Room;
 import com.gotye.live.model.wechat.AccessToken;
 import com.gotye.live.model.wechat.WeChatUserInfo;
 import com.gotye.live.namegenerate.NameLib;
@@ -59,6 +62,7 @@ public class LiveController {
 		String path = req.getScheme()+"://"+req.getServerName() + ":" + req.getServerPort()+ req.getContextPath() + "/live";
 		req.setAttribute("_path_", path);
 		req.setAttribute("roomId", roomId);
+		req.setAttribute("room", mapper.writeValueAsString(getRoom(roomId)));
 		
 		//微信appid
 		req.setAttribute("wxJsApiAppId", Config.getWxJsApiAppId());
@@ -132,26 +136,16 @@ public class LiveController {
 	private String accesstoken(String nickName,String account,Long roomId){
 		String token = "";
 		try {
-			
-			String url = apiUrl + "/AccessToken";
 			String reqJson = "";
 			String respStr = "";
 			AccessTokenReq req = new AccessTokenReq();
 			AccessTokenResp accessTokenResp;
 			//获取app级别的token
-			if(null == appAccessToken || System.currentTimeMillis() - appAccessToken.getSystime() > appAccessToken.getExpiresIn()*1000){
-				req.setScope("app");
-				req.setUserName(Config.getEmail());
-				req.setPassword(Config.getPassword());
-				reqJson = mapper.writeValueAsString(req);
-				respStr = ApiCall.post(url, reqJson, null);
-				accessTokenResp = mapper.readValue(respStr, AccessTokenResp.class);
-				appAccessToken = accessTokenResp;
-			}
+			accessAppToken();
 			token = appAccessToken.getAccessToken();
 			
 			//获取房间密码
-			url = apiUrl + "/GetRoomPwd";
+			String url = apiUrl + "/GetRoomPwd";
 			GetRoomPwdReq getRoomPwdReq = new GetRoomPwdReq();
 			getRoomPwdReq.setRole(LIVE_ROLE.visitor.getValue());
 			getRoomPwdReq.setRoomId(roomId);
@@ -180,6 +174,54 @@ public class LiveController {
 			e.printStackTrace();
 		}
 		return token;
+	}
+	
+	/**
+	 * 获取app级别的token,并缓存
+	 */
+	private void accessAppToken(){
+		try {
+			String url = apiUrl + "/AccessToken";
+			String reqJson = "";
+			String respStr = "";
+			AccessTokenReq req = new AccessTokenReq();
+			AccessTokenResp accessTokenResp;
+			//获取app级别的token
+			if(null == appAccessToken || System.currentTimeMillis() - appAccessToken.getSystime() > appAccessToken.getExpiresIn()*1000){
+				req.setScope("app");
+				req.setUserName(Config.getEmail());
+				req.setPassword(Config.getPassword());
+				reqJson = mapper.writeValueAsString(req);
+				respStr = ApiCall.post(url, reqJson, null);
+				accessTokenResp = mapper.readValue(respStr, AccessTokenResp.class);
+				appAccessToken = accessTokenResp;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//获取房间信息
+	private Room getRoom(Long roomId){
+		Room room = new Room();
+		try{
+			String url = apiUrl + "/GetRoom";
+			String reqJson = "";
+			String respStr = "";
+			accessAppToken();
+			String token = appAccessToken.getAccessToken();
+			GetRoomReq req = new GetRoomReq();
+			req.setRoomId(roomId);
+			reqJson = mapper.writeValueAsString(req);
+			Map<String, String> headers = new HashMap<String, String>();
+			headers.put("Authorization", token);
+			respStr = ApiCall.post(url, reqJson, headers);
+			GetRoomResp resp = mapper.readValue(respStr, GetRoomResp.class);
+			room = resp.getEntity();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return room;
 	}
 	
 	/**
