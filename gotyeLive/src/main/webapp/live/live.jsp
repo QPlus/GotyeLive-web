@@ -146,6 +146,8 @@
 						 	<div class="intr-cont" id="anchorIntr"></div>
 						 </section>
                 	  </div>
+                	  	  <!-- 输入栏  -->
+                	  	  <!--fixed定位输入框在底部， 布局外层是为了兼容大多数浏览器 --> 
                           <nav id="chat">
                               <div class="display-box">
                               	  <div class="chat-input flex border-box">
