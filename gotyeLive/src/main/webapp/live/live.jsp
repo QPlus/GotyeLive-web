@@ -38,7 +38,7 @@
 		<script src="http://medias.livevip.com.cn/web_lib/js/live.player_2.0.js"></script> 
     </head>
     <body>
-        <div data-role="page" id="pageone" class="container" style="max-width:760px;margin:auto;">
+        <div data-role="page" id="pageone" class="container" style="max-width:640px;margin:auto;">
             <div class="header">
                 <ul>
                     <li class="lo">
@@ -69,7 +69,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="video" id="videoPlayer" style="display:none;" style="heigth:500px;">
+            <div class="video" id="videoPlayer" style="display:none;" style="heigth:360px;">
             	<div  class="video-container">
             		<video id="liveVideoWindow" controls autoplay poster="data:image/gif,AAAA" width="100%" height="100%" style="display: block;margin-top:0px;  background-size:100%; width:100%; height:100%;" webkit-playsinline preload src="">
 	                </video>
@@ -138,8 +138,8 @@
 						 		<p id="kjp" style=""><img src="${_path_}/images/kj.png"></p>
 						 	</div>
 						 	<div class="doc_bg"></div>
-						 	<div class="doc_big" id="doc_big" onclick="docbigClick();"><a href="javascript:void(0);"><i></i></a></div>
-						 	<div class="doc_refresh" id="doc_refresh"><a href="javascript:_loadmod();"><i></i></a></div>
+						 	<div class="doc_big" id="doc_big" onclick="docbigClick(this);"><a href="javascript:void(0);"><i></i></a></div>
+						 	<div class="doc_refresh" id="doc_refresh" onclick="loadCourseware();"><a href="javascript:void(0);"><i></i></a></div>
 						 </section>
 						 <!-- 主播介绍 -->
 						 <section id="infor-tab52" class="videoBox1 swiper-slide">

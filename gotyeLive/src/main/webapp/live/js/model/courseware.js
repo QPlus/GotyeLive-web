@@ -12,7 +12,7 @@ function loadCourseware(){
 }
 
 //课件全屏
-function docbigClick(event){
+function docbigClick(_this){
 	var doc_itime;
 	setTimeout(function(){
 		if($(window).scrollTop()!=0){
@@ -20,9 +20,8 @@ function docbigClick(event){
 		}
 		
 	},100);
-	 event.stopPropagation();
-	 $(this).toggleClass("on");
-	 if($(this).hasClass("on")){
+	 $(_this).toggleClass("on");
+	 if($(_this).hasClass("on")){
 		 $(".video").addClass("videotop");
 		 $(".header").css({'display':"none"});
 		 $(".tabs").css({'display':"none"});

@@ -30,8 +30,8 @@ $(function(){
         if(isPhone()){
         	$(".video").css("height", videoHeight);
         }else{
-        	$(".video").css("height", "501px");
-        	videoHeight=501;
+        	$(".video").css("height", "360px");
+        	videoHeight=360;
         }
         $(".chat-plate").css("height", contHeight - 28 - videoHeight);
         var tabsHeight = (contHeight - 28 - videoHeight) - $(".tabs").height();
