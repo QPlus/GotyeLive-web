@@ -1,0 +1,105 @@
+@charset "utf-8";
+
+*{margin:0;padding:0;}
+
+* html body{
+overflow: visible;
+}
+* html iframe, * html frame{
+overflow: auto;
+}
+* html frameset{
+overflow: hidden;
+}
+
+body{color:#667176;background:#fff;font:12px/22px; font-family: 微软雅黑;}
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,tr{margin:0;padding:0;}
+input,select{font-size:12px;vertical-align:middle;}
+
+body div{text-align:left;}
+
+textarea,input{	word-wrap:break-word;word-break:break-all;padding:0px;}
+
+li{list-style-type:none;}
+
+img{border:0 none;}
+
+a:link, a:visited{
+text-decoration: none;
+}
+a:hover{
+text-decoration: underline;
+}
+/* 去掉链接的虚线框 */
+/* a {outline: none; a {star:expression(this.onFocus=this.blur()); */  
+
+h1{ font-size:24px;}
+h2{ font-size:20px;}
+h3{ font-size:18px;}
+h4{ font-size:16px;}
+h5{ font-size:14px;}
+h6{ font-size:12px;}
+
+/* @end */
+
+
+/* @group 通用属性定义 */
+/* 鼠标样式 */
+.pointer{cursor:pointer;}
+/* 取消边框 */
+.border_none{border:0 none;}
+/* 文本对齐方式 */
+.txt-l{text-align:left;}
+.txt-c{text-align:center;}
+.txt-r{text-align:right;}
+
+/*
+* 字母和单词换行设置
+* @class Break 强制内容换行
+* @class Nobreak 强制内容不换行
+*/
+.Break{word-break:break-all;word-wrap:break-word;}
+.Nobreak{word-break:keep-all;word-wrap:normal;}
+
+/* 浮动定义 */
+.FL{float:left;}
+.FR{float:right;}
+
+/* 定义文本下划线 */
+.UnLine{text-decoration:underline;}
+.DisunLine{text-decoration:none;}
+
+/* 定位关系 */
+.absolute{position:absolute;}
+.relative{position:relative;}
+
+
+
+/* 通用容器 */
+.wrapper{
+clear: both;
+/*overflow: hidden;*/
+}
+
+/* @group 隐藏元素 */
+
+
+.overflow_h{overflow:hidden;}
+
+.visible_h{
+visibility:hidden;
+}
+
+.display_n{
+display: none;
+}
+.block {display:block;}
+
+.clear{clear:both; height:0px; width:100%; font-size:1px; line-height:0px; visibility:hidden; overflow:hidden;}
+
+/*表格边框线 合并*/
+.tableLine{
+    empty-cells:show; border-collapse:collapse;
+}
+
+.transparent{  height:330px; filter:alpha(Opacity=80);-moz-opacity:0.5;opacity: 0.5;z-index:100; background-color:#ffffff;  }

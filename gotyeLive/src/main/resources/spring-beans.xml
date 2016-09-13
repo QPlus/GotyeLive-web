@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+<context:component-scan base-package="com.gotye">
+	   	<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service" />
+		<context:include-filter type="annotation"	expression="org.springframework.stereotype.Component" />
+	</context:component-scan>
+
+	<!-- 依赖注入注释功能 -->
+	<context:annotation-config />
+	<!-- 启动对@AspectJ注解的支持 -->
+	<aop:aspectj-autoproxy />
+	
+	<bean
+  		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+  		<property name="messageConverters">
+   			<list>
+    			<bean
+     				class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+     				<property name="supportedMediaTypes">
+      					<list>
+       						<!--返回字符串格式json-->
+       						<value>application/json;charset=UTF-8</value>
+      					</list>
+     				</property>
+    			</bean>
+   			</list>
+  		</property>
+ 	</bean>
+</beans>
