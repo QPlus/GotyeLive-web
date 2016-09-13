@@ -27,7 +27,12 @@ $(function(){
         var contHeight = $(window).height();
         var videoHeight = $(window).width() * 9 / 16;
         $("#pageone").css("height", contHeight);
-        $(".video").css("height", videoHeight);
+        if(isPhone()){
+        	$(".video").css("height", videoHeight);
+        }else{
+        	$(".video").css("height", "501px");
+        	videoHeight=501;
+        }
         $(".chat-plate").css("height", contHeight - 28 - videoHeight);
         var tabsHeight = (contHeight - 28 - videoHeight) - $(".tabs").height();
         $(".chatBox").css("height", tabsHeight);

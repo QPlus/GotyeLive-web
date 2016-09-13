@@ -38,7 +38,7 @@
 		<script src="http://medias.livevip.com.cn/web_lib/js/live.player_2.0.js"></script> 
     </head>
     <body>
-        <div data-role="page" id="pageone" class="container">
+        <div data-role="page" id="pageone" class="container" style="max-width:760px;margin:auto;">
             <div class="header">
                 <ul>
                     <li class="lo">
@@ -69,7 +69,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="video" id="videoPlayer" style="display:none;">
+            <div class="video" id="videoPlayer" style="display:none;" style="heigth:500px;">
             	<div  class="video-container">
             		<video id="liveVideoWindow" controls autoplay poster="data:image/gif,AAAA" width="100%" height="100%" style="display: block;margin-top:0px;  background-size:100%; width:100%; height:100%;" webkit-playsinline preload src="">
 	                </video>
