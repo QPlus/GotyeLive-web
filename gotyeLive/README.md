@@ -117,7 +117,7 @@ GOTYE_WX_JSAPI_SECRET=  //微信appsecret
 ## 打包发布
 
     1.使用maven打包发布到容器中,比如tomcat
-    2.打开观看页面 http://{basePath}/live/{roomid}
+    2.打开观看页面 http://{basePath}/gotyeLive/live/{roomid}
         basePath: 为项目域名和端口
         roomId：为亲加后台创建的房间的id
 
