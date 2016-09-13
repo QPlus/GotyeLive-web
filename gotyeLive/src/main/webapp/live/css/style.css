@@ -675,9 +675,9 @@ playTourlist ul.list {
 nav#chat {
 	width: 100%;
 	height:55px;
+	max-width:640px;
 	position:fixed;
 	bottom: 0;
-	left: 0;
 	z-index: 1000;
 	background: #fff;
 	box-shadow: 1px 1px 6px rgb(167, 170, 171);
