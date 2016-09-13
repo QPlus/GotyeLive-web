@@ -50,14 +50,12 @@ GOTYE_LOGTYE_TYPE = 2
 
 ### 配置微信登陆
 ```
-
 GOTYE_WX_JSAPI_APPID=  //微信appId
 GOTYE_WX_JSAPI_SECRET=  //微信appsecret
-
-微信公众平台https://mp.weixin.qq.com/
-微信网页授权文档https://mp.weixin.qq.com/wiki/4/9ac2e7b1f1d22e9e57260f6553822520.html
-
 ```
+[微信公众平台](https://mp.weixin.qq.com/)
+[微信网页授权文档](https://mp.weixin.qq.com/wiki/4/9ac2e7b1f1d22e9e57260f6553822520.html)
+
 ### 配置支付功能
 ```
  BEECLOUD_APPID = //BeeCloud应用 appId
@@ -68,9 +66,9 @@ GOTYE_WX_JSAPI_SECRET=  //微信appsecret
  
 生产模式testSecret可为null
 测试模式appSecret、masterSecret可为null
- 
-支付功能使用的是BeeCloud开源项目，可以支持多种支付方式，这里只使用了微信作为示例代码.其它支付方式请见https://beecloud.cn官方文档
 ```
+支付功能使用的是BeeCloud开源项目，可以支持多种支付方式，这里只使用了微信作为示例代码.
+其它支付方式请见[官方文档](https://beecloud.cn)
 
 ## 关键代码
 
@@ -81,9 +79,6 @@ GOTYE_WX_JSAPI_SECRET=  //微信appsecret
 	<!-- 聊天 -->
     <section class="msg-chat swiper-slide show" id="infor-tab10">
      	<div class="showgift" id="showgift"></div>
-     	<div class="loadImg" style="display:none;">
-     		<img src="http://162.gotlive.com.cn:80/share/h5/images/loading.gif">
-     	</div>
      	<ul class="msg-list chat allow-roll" id="msg-chat-list" style="height: 333.063px;">
 	 	</ul>
 	</section>
@@ -95,11 +90,14 @@ GOTYE_WX_JSAPI_SECRET=  //微信appsecret
 	<!-- 课件 -->
 	<section class="swiper-slide docbox" id="infor-tab81">
 		<div class="default-kj">
-			<iframe name="iframeId" id="iframeId" class="iframeId" src="" scrolling="yes" style="border: none; width: 100%; height: 100%; display: none;" frameborder="0"></iframe>
+			<iframe name="iframeId" id="iframeId" class="iframeId" src="" 
+            scrolling="yes" style="border: none; width: 100%; height: 100%; 
+            display: none;" frameborder="0"></iframe>
 			<p id="kjp" style=""><img src="${_path_}/images/kj.png"></p>
 		</div>
 		<div class="doc_bg"></div>
-		<div class="doc_big" id="doc_big" onclick="docbigClick();"><a href="javascript:void(0);"><i></i></a></div>
+		<div class="doc_big" id="doc_big" onclick="docbigClick();">
+        <a href="javascript:void(0);"><i></i></a></div>
 		<div class="doc_refresh" id="doc_refresh"><a href="javascript:_loadmod();"><i></i></a></div>
 	</section>
 
@@ -113,7 +111,6 @@ GOTYE_WX_JSAPI_SECRET=  //微信appsecret
 	loadPlayer(token);//加载视频
 
 ### 主播介绍
-
 
 	$("#anchorIntr").html(entity.anchorDesc);//主播介绍
 
