@@ -1,6 +1,7 @@
 # 亲加直播web观看端
 ## 概述
-    此项目开源是为了帮助用户快捷集成亲加直播web端，亲加直播web观看端是以亲加直播SDK为基础开发的一套开源项目，用户可以在此基础上修改完成自己的页面。
+    此项目开源是为了帮助用户快捷集成亲加直播web端，亲加直播web观看端是以亲
+    加直播SDK为基础开发的一套开源项目，用户可以在此基础上修改完成自己的页面。
 
 ## 功能模块
 ```
@@ -62,16 +63,18 @@ GOTYE_WX_JSAPI_SECRET=  //微信appsecret
  BEECLOUD_MASTER_SECRET= //BeeCloud应用 masterSecret
  BEECLOUD_SANDBOX= 设置sandbox属性为true，开启测试模式
  
- LIVE模式testSecret可为null
- 测试模式appSecret、masterSecret可为null
+生产模式testSecret可为null
+测试模式appSecret、masterSecret可为null
  
-   支付功能使用的是BeeCloud开源项目，可以支持多种支付方式，这里只使用了微信作为示例代码.其它支付方式请见https://beecloud.cn官方文档
+支付功能使用的是BeeCloud开源项目，可以支持多种支付方式，这里只使用了微信作为示例代码.其它支付方式请见https://beecloud.cn官方文档
 ```
 
 ## 关键代码
+
 	页面路径：main\webapp\live\live.jsp
 	
 ### 聊天模块###
+
 	<!-- 聊天 -->
     <section class="msg-chat swiper-slide show" id="infor-tab10">
      	<div class="showgift" id="showgift"></div>
@@ -85,6 +88,7 @@ GOTYE_WX_JSAPI_SECRET=  //微信appsecret
 	chat = new Gotye.Chat(token);//聊天
 
 ### 课件模块
+
 	<!-- 课件 -->
 	<section class="swiper-slide docbox" id="infor-tab81">
 		<div class="default-kj">
@@ -99,19 +103,27 @@ GOTYE_WX_JSAPI_SECRET=  //微信appsecret
 	loadCourseware();//加载课件
 	
 ### 视频模块
+
     <!-- 视频容器div -->
     <div class="video" id="videoPlayer2" >
     
 	loadPlayer(token);//加载视频
 
 ### 主播介绍
+
+
 	$("#anchorIntr").html(entity.anchorDesc);//主播介绍
 
 ## 打包发布
+
     1.使用maven打包发布到容器中,比如tomcat
     2.打开观看页面 http://{basePath}/live/{roomid}
         basePath: 为项目域名和端口
         roomId：为亲加后台创建的房间的id
+
+## demo页面
+
+    http://150.gotlive.com.cn/gotyeLive/live/215147
 
 ## Q&A
 
