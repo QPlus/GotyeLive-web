@@ -410,7 +410,7 @@ Gotye.Chat = (function(win) {
     //显示送礼
 	function calculateGiftShow(){
 		var giftNum=0;
-		$('#list_emotion').children('div').css("width",$(window).width());
+		$('#list_emotion').children('div').css("width",$(window).width()>640?640:$(window).width());
 		var divLength = $('#list_emotion').children('div').length;
 		var divWidth = parseInt($('#list_emotion').children('div').css("width").replace("px",""));
 		$("#list_emotion").css("width",divLength*divWidth+"px");
