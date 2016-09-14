@@ -333,7 +333,7 @@ Gotye.Chat = (function(win) {
 	  	var placeHold=document.getElementById("showgift");
 	  	placeHold.innerHTML="";
 	 	placeHold.appendChild(oImg);
-	  	oImg.setAttribute('src',imgs[0]+"?time="+new Date().getTime());
+	  	oImg.setAttribute('src',imgs[0]);
 	  	$("#showgift").addClass("hover");
 		$("#showgift").css("display","block");
 		$("#showgift").css("opacity", 1);

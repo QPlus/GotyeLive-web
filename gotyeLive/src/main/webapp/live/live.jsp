@@ -60,9 +60,6 @@
                                 <a href="#">
                                     <i class="ico02">
                                     </i>
-                                    <p>
-                                                                                                          纯语音
-                                    </p>
                                 </a>
                             </div>
                         </div>
@@ -147,7 +144,7 @@
 						 </section>
                 	  </div>
                 	  	  <!-- 输入栏  -->
-                	  	  <!--fixed定位输入框在底部， 布局外层是为了兼容大多数浏览器 --> 
+                	  	  <!--fixed定位输入框在底部， 布局外层是为了兼容手机大多数浏览器下输入框得到焦点时被手机键盘遮挡问题 --> 
                           <nav id="chat">
                               <div class="display-box">
                               	  <div class="chat-input flex border-box">
