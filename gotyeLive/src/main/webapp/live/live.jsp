@@ -176,9 +176,10 @@
                            			 	<dd data-name="砖石" data-price='0' data-src="${_path_}/images/gift/gift_2.png">
 											<img src="${_path_}/images/gift/gift_2.png"><span class="diamond"><i></i>免费</span>
 									 	</dd>
+                           			   	<%--  收费礼物需要微信登陆模式才能支付
                            			   	<dd data-name="跑车" data-price='0.01' data-src="${_path_}/images/gift/gift_1.png">
 											<img src="${_path_}/images/gift/gift_1.png"><span class="diamond"><i></i>0.01</span>
-									 	</dd>
+									 	</dd> --%>
 									</div>
                              		</dl><!-- 礼物框 -->
                              		<dt>
